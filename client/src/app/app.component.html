@@ -1,1 +1,4 @@
 <app-nav></app-nav>
+<app-product (productAdded)="addProductToCart($event)" [products]="productList"></app-product>
+<app-cart [products]="cartProductList" (productRemoved)="removeProduct($event)"></app-cart>
+

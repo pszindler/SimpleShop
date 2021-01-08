@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ProductComponent } from './product/product.component';
+import { ProductaddComponent } from './productadd/productadd.component';
+
 
 @Component({
   selector: 'app-root',
@@ -23,4 +26,23 @@ export class AppComponent implements OnInit {
       console.log(error);
     })
   }
+  
+  productList = [
+    {name: 'Product', price: 420.69}
+  ]
+  cartProductList = [];  
+
+  addProductToCart( product: any ) {
+    const productExistInCart = this.cartProductList
+ .find(({name}) => name as any === product.name);
+    if (!productExistInCart) {
+      this.cartProductList.push({...product, num:1});      
+      return;
+    }
+    productExistInCart.num += 1;
+  }
+
+  removeProduct(product: any) {
+    this.cartProductList = this.cartProductList.filter(({name}) => name !== product.name)
+   }
 }

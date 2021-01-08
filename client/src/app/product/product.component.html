@@ -1,0 +1,4 @@
+<h1 class="cover-heading">Product List</h1>
+<app-productadd *ngFor="let product of products" [product]="product" (productAdded)="addProductToCart($event)"></app-productadd>
+    
+  

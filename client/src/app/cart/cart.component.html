@@ -1,0 +1,2 @@
+<h1 class="cover-heading">Shopping cart({{calcTotal()}})</h1>    
+<app-cartproduct *ngFor="let product of products" [product]="product" (productRemoved)="removeProduct($event)"></app-cartproduct>
